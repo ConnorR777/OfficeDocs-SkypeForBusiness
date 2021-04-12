@@ -47,11 +47,16 @@ To use the Approvals app, you need permission for the following items:
 
 - License for a [Power Automate](/power-automate/get-started-approvals), an Office 365, or a Dynamics 365.
 
-## Storage with CDS
+## Storage
 
 The Common Data Model (CDM) is the shared data language used by business and analytical applications in the CDS. It consists of a set of a standardized, extensible data schemas published by Microsoft and our partners that enables consistency of data and its meaning across applications and business processes. Learn more about the [Common Data Model of the Microsoft Power Platform](/power-automate/get-started-approvals).
 
 Learn more about the [Approval workflow](/power-automate/modern-approvals).
+
+Approvals that are created from a template are still stored in CDS such as their title, details, template ID, and more. Responses that are submited on the approval request are stored in Forms. Learn more about [Data storage for Microsoft Forms](https://support.microsoft.com/en-us/office/data-storage-for-microsoft-forms-97a34e2e-98e1-4dc2-b6b4-7a8444cb1dc3#:~:text=Where%20data%20is%20stored%20for%20Microsoft%20Forms.%20Microsoft,European-based%20tenants%20is%20stored%20on%20servers%20in%20Europe.).
+
+> [!Note]
+> If you delete the Form template on the Microsoft Forms site it will also delete it for your Approval template and users will not be able to start the request. Users will get an error "CDB TableNotFound" when trying to open a Approval template that has been deleted on Microsoft Forms.  
 
 ## Approvals Teams app permissions
 
@@ -75,6 +80,12 @@ The Approvals Teams app lets you access the following features:
   - roster (team member's names and email addresses).
 
 - Use the team's information to contact them.
+
+Approval Template Permissions:
+
+- All team owners have the ability to create an approval template for their specific teams that they are an owner of. 
+
+- For Admins creating templates for tenant wide templates a new Teams team is created where you can manage the roster who has access to create templates within this scope. Please do not delete this as permission to create and view these templates will be lost.
 
 ## Disable the Approvals app
 
@@ -146,3 +157,21 @@ From the Teams Approvals app, users have access to create new Approvals and view
 
 > [!Note]
 > A user will be given a viewer role of a request if they are part of the chat or channel where the approval was created. They won't have the ability to take action on the request if they weren't given that role when the approval was created.
+
+## Approvals eSign integration
+
+E-signature approvals created from the Approvals App are stored in the selected providers cloud environment. For further information regarding storage around the e-signature agreement please view their documentation around storage.
+
+To use the Approvals app e-Signature feature, you need the following items:
+
+- License for the specific e-Signature provider. In order to obtain a license for your organization you will need to go to the providers site.
+
+For the Approvals e-Signature functionality, Third party signature partners will appear in the Teams Approvals app by default. You can disable specific e-Signature providers through the app settings within the Teams admin center.
+	
+  1. Within the Approvals app under the Manage apps section in the Teams admin center select Settings
+
+  2. Select the toggle for the specific eSignature provider to disable it. Should a Teams admin disable a provider, end users will not see the provider when creating an approval.
+
+E-signature Approvals created from the Approvals App are stored in the selected providers cloud. To export any data regarding eSign you will need to go to the providers site in order to do this. Please refer to their documentation around export and retention of these agreements.
+
+
